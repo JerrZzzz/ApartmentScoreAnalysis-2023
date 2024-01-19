@@ -1,0 +1,37 @@
+---
+title: "Paper 1"
+author: "Zhijun Zhong"
+thanks: ""
+date: "today"
+date-format: "long"
+abstract: ""
+format: pdf
+editor: visual
+bibliography: ref.bib
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
