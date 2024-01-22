@@ -230,4 +230,7 @@ Figures 4 and 5 explore the relationship between the number of units, the number
 
 In conclusion, thanks to data from OpenDataToronto [@citeopendata], we were able to discuss and analyze the relationship between a building's year of construction and its achieved score. We found that older buildings might not score as high as newer ones on average. Therefore, this paper supports the notion of using the year of construction as a criterion, while not denying the quality of older buildings exclusively. However, we maintain the recommendation for renters not to use unit number and storey number as their primary judgment criteria.
 
-# 6 Reference
+# Reference
+
+**Reference From ref.bib: 
+
