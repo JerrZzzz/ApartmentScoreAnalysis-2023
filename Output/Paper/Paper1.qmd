@@ -71,7 +71,7 @@ selected_data <- bu_eval %>%
 kable(selected_data, caption = "Year and Score", align = 'c')
 ```
 
-We can get a glimpse of what the 'year' and 'score' columns look like in the dataset (see Table 1). The 'year' column indicates the year when the building was constructed. For instance, in the first row, the year 1990 signifies that the building was constructed in 1990, and as of 2023, it has achieved a score of 88. The 'score' is a scale ranging from 0 to 100, summarizing various aspects like windows, building cleanliness, etc., which I will elaborate on later. Essentially, in this dataset, the construction year and the score a building achieves are our primary focus.
+We can get a glimpse of what the 'year' and 'score' columns look like in the dataset (see Table 1). The 'year' column indicates the year when the building was constructed. For instance, in the first row, the year 1990 means that the building was constructed in 1990, and as of 2023, it has achieved a score of 88. The 'score' is a scale ranging from 0 to 100, summarizing various aspects like windows, building cleanliness, etc., which I will elaborate on later. Essentially, in this dataset, the construction year and the score a building achieves are our primary focus.
 
 ## Secondary Columns (Decade and Average_score)
 
@@ -126,7 +126,7 @@ selected_freq_data <- data_frequency %>%
 kable(selected_freq_data, caption = "Freq Columns", align = 'c')
 ```
 
-In the above table (see Table 4), I selected 1950 and 2000 as two representative decades and compiled the percentage of buildings achieving full marks in various categories for each decade. Each decade had four categories, followed by the probability of achieving full marks. For instance, for all buildings constructed in the 2000s, the probability of achieving full marks in building cleanliness is 82.76%.
+In the above table (see Table 4), 1950 and 2000 as two representative decades have the percentage of buildings achieving full marks in various categories for each decade. Each decade had four categories, followed by the probability of achieving full marks. For instance, for all buildings constructed in the 2000s, the probability of achieving full marks in building cleanliness is 82.76%.
 
 This concludes the overview of the data we have cleaned from the OpenDataToronto package. The original data can be downloaded here: https://open.toronto.ca/dataset/apartment-building-evaluation/.
 
