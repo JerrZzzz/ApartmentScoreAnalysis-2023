@@ -57,10 +57,11 @@ The dataset obtained from OpenDataToronto, titled "Apartment Building Evaluation
 
 ## Main Columns (Year, Score)
 
-```{r main, message: false, echo: false, label: main, tbl-cap: Year and Score}
+```{r, message: false, echo: false, label: main, tbl-cap: Year and Score}
 #| message: false
 #| echo: false
-#| label: main
+#| label: tbl-selected_data
+#| tbl-cap: Sample of main columns
 
 # select column of year and score with help of Chatgpt
 selected_data <- bu_eval %>%
@@ -71,14 +72,15 @@ selected_data <- bu_eval %>%
 kable(selected_data, caption = "Year and Score", align = 'c')
 ```
 
-We can get a glimpse of what the 'year' and 'score' columns look like in the dataset (see Table 1). The 'year' column indicates the year when the building was constructed. For instance, in the first row, the year 1990 means that the building was constructed in 1990, and as of 2023, it has achieved a score of 88. The 'score' is a scale ranging from 0 to 100, summarizing various aspects like windows, building cleanliness, etc., which I will elaborate on later. Essentially, in this dataset, the construction year and the score a building achieves are our primary focus.
+We can get a glimpse of what the 'year' and 'score' columns look like in the dataset (see @tbl-selected_data). The 'year' column indicates the year when the building was constructed. For instance, in the first row, the year 1990 means that the building was constructed in 1990, and as of 2023, it has achieved a score of 88. The 'score' is a scale ranging from 0 to 100, summarizing various aspects like windows, building cleanliness, etc., which I will elaborate on later. Essentially, in this dataset, the construction year and the score a building achieves are our primary focus.
 
 ## Secondary Columns (Decade and Average_score)
 
 ```{r sec, message: false, echo: false, label: secondary_col, tbl-cap: secondary columns}
 #| message: false
 #| echo: false
-#| label: sec
+#| label: tbl-selected_sec_data
+#| tbl-cap: Sample of secondary columns
 
 # select column decade and average scorewith help of Chatgpt
 selected_sec_data <- bu_eval %>%
@@ -89,14 +91,15 @@ selected_sec_data <- bu_eval %>%
 kable(selected_sec_data, caption = "Decade and Average Scores", align = 'c')
 ```
 
-As shown in this table (see Table 2), which consists of two columns named "decade" and "average_score", we address the dispersal of years in the 'year' column. The original year data is too scattered for effective graphical representation. Hence, I created a column named 'decade' based on the 'year' column, which indicates the decade of the original year. For example, a building constructed in 1943 would be listed under the 1940s decade. 'Average_score' means the average score of each decade. It represents the average score achieved by all buildings within that decade as of 2023.
+As shown in this table (see @tbl-selected_sec_data), which consists of two columns named "decade" and "average_score", we address the dispersal of years in the 'year' column. The original year data is too scattered for effective graphical representation. Hence, I created a column named 'decade' based on the 'year' column, which indicates the decade of the original year. For example, a building constructed in 1943 would be listed under the 1940s decade. 'Average_score' means the average score of each decade. It represents the average score achieved by all buildings within that decade as of 2023.
 
 ## Other columns
 
 ```{r oth, message: false, echo: false, label: other, tbl-cap: other columns}
 #| message: false
 #| echo: false
-#| label: oth
+#| label: tbl-selected_other_data
+#| tbl-cap: Sample of other columns
 
 ## select all the evaluation standards, address and number of storeys and units with help of Chatgpt
 selected_other_data <- bu_eval %>%
@@ -108,14 +111,15 @@ selected_other_data <- bu_eval %>%
 kable(selected_other_data, caption = "Other Columns", align = 'c')
 ```
 
-In this table (see Table 3), 'address' refers to the building's address, such as 3179 Yonge St. 'storeys' and 'units' denote the number of storeys and units in the building, respectively. Meanwhile, 'parking', 'elevator', 'windows', and 'cleanliness' are four randomly chosen evaluation standards, each scaled from 0 to 3, with higher scores indicating better quality.
+In this table (see @tbl-selected_other_data), 'address' refers to the building's address, such as 3179 Yonge St. 'storeys' and 'units' denote the number of storeys and units in the building, respectively. Meanwhile, 'parking', 'elevator', 'windows', and 'cleanliness' are four randomly chosen evaluation standards, each scaled from 0 to 3, with higher scores indicating better quality.
 
 ## Frequency of Full score on category in 1950 and 2000
 
 ```{r, message: false, echo: false, label: other, tbl-cap: other columns}
 #| message: false
 #| echo: false
-#| label: freq
+#| label: tbl-freq
+#| tbl-cap: Sample of Frequency vs Category
 
 ## select all the column from the created data set above with help of Chatgpt
 selected_freq_data <- data_frequency %>%
@@ -126,7 +130,7 @@ selected_freq_data <- data_frequency %>%
 kable(selected_freq_data, caption = "Freq Columns", align = 'c')
 ```
 
-In the above table (see Table 4), 1950 and 2000 as two representative decades have the percentage of buildings achieving full marks in various categories for each decade. Each decade had four categories, followed by the probability of achieving full marks. For instance, for all buildings constructed in the 2000s, the probability of achieving full marks in building cleanliness is 82.76%.
+In the above table (see @tbl-freq), 1950 and 2000 as two representative decades have the percentage of buildings achieving full marks in various categories for each decade. Each decade had four categories, followed by the probability of achieving full marks. For instance, for all buildings constructed in the 2000s, the probability of achieving full marks in building cleanliness is 82.76%.
 
 This concludes the overview of the data we have cleaned from the OpenDataToronto package. The original data can be downloaded here: https://open.toronto.ca/dataset/apartment-building-evaluation/.
 
@@ -136,12 +140,13 @@ Dividing the results into three parts is crucial to understanding the questions 
 
 ## Built year vs. Score
 
-To understand the relationship between the year a building was built and its score, it is beneficial to draw a graph examining whether the score depends on the year of construction. With assistance from ChatGPT [@chatgpt], I have developed a graph illustrating the score by year (See Fig 1). Although the pattern in the figure is not entirely clear, it is noticeable that there are a few data points from the 1950s achieving very low scores. However, throughout the 20th century, these older buildings do achieve very high scores, even surpassing those constructed in the 21st century.
+To understand the relationship between the year a building was built and its score, it is beneficial to draw a graph examining whether the score depends on the year of construction. With assistance from ChatGPT [@chatgpt], I have developed a graph illustrating the score by year (See @fig-fig1). Although the pattern in the figure is not entirely clear, it is noticeable that there are a few data points from the 1950s achieving very low scores. However, throughout the 20th century, these older buildings do achieve very high scores, even surpassing those constructed in the 21st century.
 
-```{r, fig.height=3, fig.width=5, fig.align='center', fig.cap="Comparing Year with Respect of Score"}
+```{r, fig.height=3, fig.width=5, fig.align='center'}
 #| message: false
 #| echo: false
-#| label: fig1
+#| label: fig-fig1
+#| fig-cap: Comparing Year with Respect of Score
 
 ## create a graph of year vs. score with help of Chatgpt
 ggplot(bu_eval, aes(x = year, y = score)) +
@@ -150,13 +155,13 @@ ggplot(bu_eval, aes(x = year, y = score)) +
   theme_minimal()
 ```
 
-Since we cannot draw definitive conclusions from the graph above, creating a graph that calculates the mean score for each decade can provide a much clearer understanding of the overall pattern or relationship between year and score. The following graph, which displays the relationship between decade and average score per decade (see Fig 2), reveals an obvious upward trend. Given the limited number of data points before 1900-possibly due to many older buildings being replaced with modern constructions-it is better to focus on data from post-1900.
+Since we cannot draw definitive conclusions from the graph above, creating a graph that calculates the mean score for each decade can provide a much clearer understanding of the overall pattern or relationship between year and score. The following graph, which displays the relationship between decade and average score per decade (see @fig-fig2), reveals an obvious upward trend. Given the limited number of data points before 1900-possibly due to many older buildings being replaced with modern constructions-it is better to focus on data from post-1900.
 
-```{r, fig.height=2, fig.width=4, fig.align='center', fig.cap="Comparing decade with average scores"}
+```{r, fig.height=2, fig.width=4, fig.align='center', fig.cap=""}
 #| message: false
 #| echo: false
-#| label: fig2
-#| tbl_cap: fig2
+#| label: fig-fig2
+#| fig-cap: Comparing decade with average scores
 
 ## create a graph of decade vs. average score with help of Chatgpt
 ggplot(bu_eval, aes(x = Decade, y = Average_Score)) +
@@ -167,13 +172,13 @@ ggplot(bu_eval, aes(x = Decade, y = Average_Score)) +
 
 ## Percentage vs. Category
 
-The data in Section 2.4 were specifically designed to suit the analysis in the following graph (see Fig 3). Here, the x-axis represents the category, while the y-axis shows the percentage of buildings achieving full marks. The "blue" bar represents data from the 2000s, and the "red" bar represents data from the 1950s. The graph clearly illustrates a significant difference between the two decades, with buildings constructed in the 2000s more likely to achieve full marks in all categories compared to those built in the 1950s.
+The data in Section 2.4 were specifically designed to suit the analysis in the following graph (see @fig-fig3). Here, the x-axis represents the category, while the y-axis shows the percentage of buildings achieving full marks. The "blue" bar represents data from the 2000s, and the "red" bar represents data from the 1950s. The graph clearly illustrates a significant difference between the two decades, with buildings constructed in the 2000s more likely to achieve full marks in all categories compared to those built in the 1950s.
 
-```{r, fig.height=3, fig.width=5, fig.align='center', fig.cap="Comparing Category with Percentage of Achieveing Full Mark"}
+```{r, fig.height=3, fig.width=5, fig.align='center'}
 #| message: false
 #| echo: false
-#| label: fig3
-#| tbl_cap: fig3
+#| label: fig-fig3
+#| fig-cap: Comparing Category with Percentage of Achieveing Full Mark
 
 ## create a bar chart of evaluation standard vs. percentage with help of Chatgpt
 ggplot(data_frequency, aes(x = Category, y = Value, fill = as.factor(Year))) +
@@ -186,13 +191,13 @@ ggplot(data_frequency, aes(x = Category, y = Value, fill = as.factor(Year))) +
 
 ## Unit number, Storey number vs. Score
 
-Additionally, I was keen to explore the relationship of scores based on unit or storey numbers. After plotting graphs of scores against unit numbers (see Fig 4) and storey numbers (see Fig 5), a similar pattern emerges in both graphs. For buildings with a lower count of units (under 50) and storeys (under 10), scores vary widely, ranging from below 25 to 100. Conversely, buildings with a higher count of units (over 200) and storeys (above 20) tend to have scores consistently above 75.
+Additionally, I was keen to explore the relationship of scores based on unit or storey numbers. After plotting graphs of scores against unit numbers (see @fig-fig4) and storey numbers (see @fig-fig5), a similar pattern emerges in both graphs. For buildings with a lower count of units (under 50) and storeys (under 10), scores vary widely, ranging from below 25 to 100. Conversely, buildings with a higher count of units (over 200) and storeys (above 20) tend to have scores consistently above 75.
 
-```{r, fig.height=3, fig.width=5, fig.align='center', fig.cap="Comparing Score with Unit Number"}
+```{r, fig.height=3, fig.width=5, fig.align='center'}
 #| message: false
 #| echo: false
-#| label: fig4
-#| tbl_cap: fig4
+#| label: fig-fig4
+#| fig-cap: Comparing Score with Unit Number
 
 ## create a graph of unit number vs. score with help of Chatgpt
 ggplot(bu_eval, aes(x = units, y = score)) +
@@ -201,11 +206,11 @@ ggplot(bu_eval, aes(x = units, y = score)) +
   theme_minimal()
 ```
 
-```{r, fig.height=3, fig.width=5, fig.align='center', fig.cap="Comparing Score with Storey Number"}
+```{r, fig.height=3, fig.width=5, fig.align='center', fig.cap=""}
 #| message: false
 #| echo: false
-#| label: fig5
-#| tbl_cap: fig5
+#| label: fig-fig5
+#| fig-cap: Comparing Score with Storey Number
 
 ## create a graph of storeys number vs. score with help of Chatgpt
 ggplot(bu_eval, aes(x = storeys, y = score)) +
@@ -216,15 +221,15 @@ ggplot(bu_eval, aes(x = storeys, y = score)) +
 
 # Discussion
 
-In order to answer the important question posed at the beginning of the paper -- whether it is typically a better choice for renters to choose for buildings constructed more recently rather than older ones -- we need to closely examine the data. By analyzing the 'score by year' graph (see Fig 1), we observe that not all older buildings score low. For instance, some buildings from the 1960s, such as one constructed in 1965 located at 24 Tyndall Ave, achieved a perfect score of 100. However, the 'decades vs. average scores' plot (see Fig 2) reveals a significant score difference of about 10 points between buildings constructed in 1900 and those in 2000. Although the data does not provide enough explanation to evaluate the significance of a 10-point difference, a trend is enough where newer buildings are more likely to achieve higher scores.
+In order to answer the important question posed at the beginning of the paper -- whether it is typically a better choice for renters to choose for buildings constructed more recently rather than older ones -- we need to closely examine the data. By analyzing the 'score by year' graph (see @fig-fig1), we observe that not all older buildings score low. For instance, some buildings from the 1960s, such as one constructed in 1965 located at 24 Tyndall Ave, achieved a perfect score of 100. However, the 'decades vs. average scores' plot (see @fig-fig2) reveals a significant score difference of about 10 points between buildings constructed in 1900 and those in 2000. Although the data does not provide enough explanation to evaluate the significance of a 10-point difference, a trend is enough where newer buildings are more likely to achieve higher scores.
 
 Before drawing conclusions, let's revisit Fig 1. Noticeable outliers[^1], such as a building built in 1954 at 5 A Jasper Ave with a score of 17 out of 100, do bring the overall average down. Yet, denying the average score graph entirely would be hasty. A closer inspection of Fig 1 reveals that, excluding outliers, the score range for the 20th century (approximately 60 to 100) is still broader than that of the 21st century (about 82 to 100). Even with a 90% quantile or percentile adjustment, the pattern of increasing scores is unlikely to change significantly due to the dataset's size and score range.
 
 [^1]: **Outlier**: Outliers in statistical analyzing are often refer to some certain data observations which are obviously outside of the common sense. For example, a column data set record the age of student going to STA302's class and there is one observation saying 80 which is an obvious special case. By Singh's paper[@outlier], we can say that our outlier here is a point outlier. He defines it as that if one of the data point can be considered as "anomalous", then it is a point outlier.
 
-Additionally, the detailed analysis of different categories further supports that newer buildings tend to score higher. As shown in Fig 3, the likelihood of achieving full marks in categories like cleanliness, windows, and elevators is much higher for buildings from the 2000s compared to the 1950s. Focusing on cleanliness, since some older buildings lack elevators, we find that 82.76% of buildings from the 2000s achieve full marks in cleanliness, compared to 66.0% from the 1950s. This implies that out of 100 buildings constructed in the 1950s, about 66 would achieve full marks in cleanliness, while approximately 82 out of 100 buildings from the 2000s would.
+Additionally, the detailed analysis of different categories further supports that newer buildings tend to score higher. As shown in figure 3 (see @fig-fig3), the likelihood of achieving full marks in categories like cleanliness, windows, and elevators is much higher for buildings from the 2000s compared to the 1950s. Focusing on cleanliness, since some older buildings lack elevators, we find that 82.76% of buildings from the 2000s achieve full marks in cleanliness, compared to 66.0% from the 1950s. This implies that out of 100 buildings constructed in the 1950s, about 66 would achieve full marks in cleanliness, while approximately 82 out of 100 buildings from the 2000s would.
 
-Figures 4 and 5 explore the relationship between the number of units, the number of storeys, and scores. Contrary to the belief that a higher number of units or storeys hardened management and cleaning, the data does not show a specific pattern indicating a relationship. Buildings of varying unit and storey numbers have achieved high scores, suggesting that renters should not base their judgment solely on these factors.
+Figures 4 (see @fig-fig4) and 5 (see @fig-fig5)explore the relationship between the number of units, the number of storeys, and scores. Contrary to the belief that a higher number of units or storeys hardened management and cleaning, the data does not show a specific pattern indicating a relationship. Buildings of varying unit and storey numbers have achieved high scores, suggesting that renters should not base their judgment solely on these factors.
 
 # Conclusion
 
@@ -232,5 +237,4 @@ In conclusion, thanks to data from OpenDataToronto [@citeopendata], we were able
 
 # Reference
 
-**Reference From ref.bib: 
-
+**Reference From ref.bib:
