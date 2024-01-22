@@ -152,11 +152,11 @@ be_cleaned <- be_cleaned %>%
 
 write_csv(
   x = be_cleaned,
-  file = "cleaned_Buildingeval_data.csv"
+  file = "/cloud/project/Output/Data/cleaned_Buildingeval_data.csv"
 )
 
 write_csv(
   x = data_frequency,
-  file = "data_frequency.csv"
+  file = "/cloud/project/Output/Data/data_frequency.csv"
 )
 

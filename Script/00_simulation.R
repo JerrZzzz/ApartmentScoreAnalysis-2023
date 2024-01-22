@@ -52,7 +52,7 @@ head(buildings_evaluation_sim)
 
 write_csv(
   x = buildings_evaluation_sim,
-  file = "Building_Evaluation_Sim_Raw.csv"
+  file = "/cloud/project/Input/Data /Building_Evaluation_Sim_Raw.csv"
 )
 
 ### Test data ###

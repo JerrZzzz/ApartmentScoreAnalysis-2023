@@ -24,18 +24,17 @@ library(tidyverse)
 library(lubridate)
 library(ggplot2)
 library(dplyr)
+library(readr)
 
 # read previously cleaned data
-bu_eval <-
-  read_csv(
-    "cleaned_Buildingeval_data.csv",
-    show_col_types = FALSE
-  )
+file_path <- "/cloud/project/Output/Data/cleaned_Buildingeval_data.csv"
+bu_eval <- read_csv(file_path, show_col_types = FALSE)
 
 # read previously created data
+file_path2 <- "/cloud/project/Output/Data/data_frequency.csv"
 data_frequency <-
   read_csv(
-    "data_frequency.csv",
+    file_path2,
     show_col_types = FALSE
   )
 ```
@@ -221,7 +220,7 @@ In order to answer the important question posed at the beginning of the paper --
 
 Before drawing conclusions, let's revisit Fig 1. Noticeable outliers[^1], such as a building built in 1954 at 5 A Jasper Ave with a score of 17 out of 100, do bring the overall average down. Yet, denying the average score graph entirely would be hasty. A closer inspection of Fig 1 reveals that, excluding outliers, the score range for the 20th century (approximately 60 to 100) is still broader than that of the 21st century (about 82 to 100). Even with a 90% quantile or percentile adjustment, the pattern of increasing scores is unlikely to change significantly due to the dataset's size and score range.
 
-[^1]: **Outlier**: Outliers in statistical analyzing are often refer to some certain data observations which are obviously outside of the common sense. For example, a column data set record the age of student going to STA302's class and there is one observation saying 80 which is an obvious special case. By Singh's paper[@outlier], we can say that our outlier here is a point outlier. He defines it as that if one of the data point can be considered as "anomalous", then it is a point outlier. 
+[^1]: **Outlier**: Outliers in statistical analyzing are often refer to some certain data observations which are obviously outside of the common sense. For example, a column data set record the age of student going to STA302's class and there is one observation saying 80 which is an obvious special case. By Singh's paper[@outlier], we can say that our outlier here is a point outlier. He defines it as that if one of the data point can be considered as "anomalous", then it is a point outlier.
 
 Additionally, the detailed analysis of different categories further supports that newer buildings tend to score higher. As shown in Fig 3, the likelihood of achieving full marks in categories like cleanliness, windows, and elevators is much higher for buildings from the 2000s compared to the 1950s. Focusing on cleanliness, since some older buildings lack elevators, we find that 82.76% of buildings from the 2000s achieve full marks in cleanliness, compared to 66.0% from the 1950s. This implies that out of 100 buildings constructed in the 1950s, about 66 would achieve full marks in cleanliness, while approximately 82 out of 100 buildings from the 2000s would.
 

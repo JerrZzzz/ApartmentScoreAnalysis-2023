@@ -34,8 +34,10 @@ head(Building_Eval)
 
 write_csv(
   x = Building_Eval,
-  file = "Building_Evaluation_Raw.csv"
+  file = "/cloud/project/Input/Data /Building_Evaluation_Raw.csv"
 )
+
+
 
 
 
