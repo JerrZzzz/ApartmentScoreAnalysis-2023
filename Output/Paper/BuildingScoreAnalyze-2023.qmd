@@ -1,7 +1,7 @@
 ---
 title: "Evaluating Modern vs. Older Buildings: Detailed Analysis on the Apartment Building Evaluation 2023"
 author: "Zhijun Zhong"
-thanks: "Files, Codes and Paper are Availiable at https://github.com/JerrZzzz/Paper-1.git"
+thanks: "Files, Codes and Paper are Availiable at https://github.com/JerrZzzz/ApartmentScoreAnalysis-2023.git"
 date: "today"
 date-format: "long"
 abstract: "In this study, we dived into the Apartment Building Evaluation dataset from OpenDataToronto to understand what factors renters prioritize when choosing an apartment. Our focus is on how the year of construction influences rental decisions. By comparing various evaluation scores, such as window quality and building cleanliness, among buildings from different construction years, we discover trends in renter preferences. This research highlight on the significance of a building's age in the rental market, offering valuable insights for both renters and the housing industry."
