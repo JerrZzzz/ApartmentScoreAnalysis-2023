@@ -18,7 +18,7 @@ library(dplyr)
 
 be_clean <-
   read_csv(
-    "Building_Evaluation_Raw.csv",
+    "/cloud/project/Input/Data /Building_Evaluation_Raw.csv",
     show_col_types = FALSE
   )
 
@@ -26,6 +26,11 @@ be_clean <-
 
 be_clean <-
   clean_names(be_clean)
+
+##Filter all the property type to private
+
+be_clean <- be_clean %>% 
+  filter(property_type == "PRIVATE")
 
 ##Select column we want
 
@@ -35,6 +40,13 @@ be_clean <-
          confirmed_units, current_building_eval_score, parking_areas,
          elevator_maintenance, windows, building_cleanliness
   )
+
+### Get rid of Outliers by remove 1% for top scores and 1% of low scores ###
+p1 <- quantile(be_clean$current_building_eval_score, 0.01)
+p99 <- quantile(be_clean$current_building_eval_score, 0.99)
+
+be_clean <- be_clean %>% 
+  filter(current_building_eval_score >= p1 & current_building_eval_score <= p99)
 
 ##See all the unique year built we have
 
@@ -147,6 +159,8 @@ be_cleaned <- be_cleaned %>%
     windows = windows,
     cleanliness = building_cleanliness
   )
+
+
 
 ##Write the Cleaned data as csv (save)
 

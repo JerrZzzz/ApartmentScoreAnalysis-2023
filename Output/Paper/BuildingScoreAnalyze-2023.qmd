@@ -185,6 +185,7 @@ ggplot(data_frequency, aes(x = Category, y = Value, fill = as.factor(Year))) +
   geom_bar(stat = "identity", position = position_dodge()) +
   scale_fill_brewer(palette = "Set1") + 
   labs(x = "Category", y = "Percentage", title = "Percentage for buildings of achieving a full Mark") +
+  scale_fill_manual(values = c("1950" = "pink", "2000" = "blue")) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
@@ -219,17 +220,21 @@ ggplot(bu_eval, aes(x = storeys, y = score)) +
   theme_minimal()
 ```
 
+\newpage
+
 # Discussion
 
 In order to answer the important question posed at the beginning of the paper -- whether it is typically a better choice for renters to choose for buildings constructed more recently rather than older ones -- we need to closely examine the data. By analyzing the 'score by year' graph (see @fig-fig1), we observe that not all older buildings score low. For instance, some buildings from the 1960s, such as one constructed in 1965 located at 24 Tyndall Ave, achieved a perfect score of 100. However, the 'decades vs. average scores' plot (see @fig-fig2) reveals a significant score difference of about 10 points between buildings constructed in 1900 and those in 2000. Although the data does not provide enough explanation to evaluate the significance of a 10-point difference, a trend is enough where newer buildings are more likely to achieve higher scores.
 
-Before drawing conclusions, let's revisit Fig 1. Noticeable outliers[^1], such as a building built in 1954 at 5 A Jasper Ave with a score of 17 out of 100, do bring the overall average down. Yet, denying the average score graph entirely would be hasty. A closer inspection of Fig 1 reveals that, excluding outliers, the score range for the 20th century (approximately 60 to 100) is still broader than that of the 21st century (about 82 to 100). Even with a 90% quantile or percentile adjustment, the pattern of increasing scores is unlikely to change significantly due to the dataset's size and score range.
+Before drawing conclusions, let's revisit Fig 1. Noticeable outliers[^1], such as a building built in 1954 at 5 A Jasper Ave with a score of 17 out of 100, do bring the overall average down. Yet, denying the average score graph entirely would be hasty. A closer inspection of Fig 1 reveals that, excluding outliers, the score range for the 20th century (approximately 60 to 100) is still broader than that of the 21st century (about 82 to 100). Even with a 90% quantile or percentile adjustment, the pattern of increasing scores is unlikely to change significantly due to the dataset's size and score range [^2]. 
 
 [^1]: **Outlier**: Outliers in statistical analyzing are often refer to some certain data observations which are obviously outside of the common sense. For example, a column data set record the age of student going to STA302's class and there is one observation saying 80 which is an obvious special case. By Singh's paper[@outlier], we can say that our outlier here is a point outlier. He defines it as that if one of the data point can be considered as "anomalous", then it is a point outlier.
 
 Additionally, the detailed analysis of different categories further supports that newer buildings tend to score higher. As shown in figure 3 (see @fig-fig3), the likelihood of achieving full marks in categories like cleanliness, windows, and elevators is much higher for buildings from the 2000s compared to the 1950s. Focusing on cleanliness, since some older buildings lack elevators, we find that 82.76% of buildings from the 2000s achieve full marks in cleanliness, compared to 66.0% from the 1950s. This implies that out of 100 buildings constructed in the 1950s, about 66 would achieve full marks in cleanliness, while approximately 82 out of 100 buildings from the 2000s would.
 
 Figures 4 (see @fig-fig4) and 5 (see @fig-fig5)explore the relationship between the number of units, the number of storeys, and scores. Contrary to the belief that a higher number of units or storeys hardened management and cleaning, the data does not show a specific pattern indicating a relationship. Buildings of varying unit and storey numbers have achieved high scores, suggesting that renters should not base their judgment solely on these factors.
+
+[^2]:**Note: After Peer Review, a friend commented my paper and said that outliers are serious issue and suggest that I take care of it. I redid my codes and removed 1% each side of my data on column score and I found that my conclusion stayed the same. The graph is still having a trend I talked about above. Thanks to @ zxc0707. 
 
 # Conclusion
 
