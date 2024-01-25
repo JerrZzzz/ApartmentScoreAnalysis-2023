@@ -55,7 +55,7 @@ All data manipulated and presented in this paper were sourced from OpenDataToron
 
 The dataset obtained from OpenDataToronto, titled "Apartment Building Evaluations 2023," contains an extensive amount of information, making it challenging to present in a single table. In the following parts of the data section, I will showcase different columns and discuss their meanings.
 
-## Main Columns (Year, Score)
+## Year and Score
 
 ```{r, message: false, echo: false, label: main, tbl-cap: Year and Score}
 #| message: false
@@ -74,7 +74,7 @@ kable(selected_data, caption = "Year and Score", align = 'c')
 
 We can get a glimpse of what the 'year' and 'score' columns look like in the dataset (see @tbl-selected_data). The 'year' column indicates the year when the building was constructed. For instance, in the first row, the year 1990 means that the building was constructed in 1990, and as of 2023, it has achieved a score of 88. The 'score' is a scale ranging from 0 to 100, summarizing various aspects like windows, building cleanliness, etc., which I will elaborate on later. Essentially, in this dataset, the construction year and the score a building achieves are our primary focus.
 
-## Secondary Columns (Decade and Average_score)
+## Decade and Average_score
 
 ```{r sec, message: false, echo: false, label: secondary_col, tbl-cap: secondary columns}
 #| message: false
@@ -93,7 +93,7 @@ kable(selected_sec_data, caption = "Decade and Average Scores", align = 'c')
 
 As shown in this table (see @tbl-selected_sec_data), which consists of two columns named "decade" and "average_score", we address the dispersal of years in the 'year' column. The original year data is too scattered for effective graphical representation. Hence, I created a column named 'decade' based on the 'year' column, which indicates the decade of the original year. For example, a building constructed in 1943 would be listed under the 1940s decade. 'Average_score' means the average score of each decade. It represents the average score achieved by all buildings within that decade as of 2023.
 
-## Other columns
+## Address, Storeys, Units and Criterion for different Category
 
 ```{r oth, message: false, echo: false, label: other, tbl-cap: other columns}
 #| message: false
@@ -113,7 +113,7 @@ kable(selected_other_data, caption = "Other Columns", align = 'c')
 
 In this table (see @tbl-selected_other_data), 'address' refers to the building's address, such as 3179 Yonge St. 'storeys' and 'units' denote the number of storeys and units in the building, respectively. Meanwhile, 'parking', 'elevator', 'windows', and 'cleanliness' are four randomly chosen evaluation standards, each scaled from 0 to 3, with higher scores indicating better quality.
 
-## Frequency of Full score on category in 1950 and 2000
+## Frequency of full score on different category in 1950 and 2000
 
 ```{r, message: false, echo: false, label: other, tbl-cap: other columns}
 #| message: false
@@ -137,8 +137,6 @@ This concludes the overview of the data we have cleaned from the OpenDataToronto
 # Results
 
 Dividing the results into three parts is crucial to understanding the questions we raised at the beginning of the paper. I will analyze different aspects of my data using graphs and plots to answer these questions. In section 3.1, I will present the relationship between the built year and the score. Section 3.2 provides a detailed comparison between categories and the percentage of full scores achieved. Finally, in section 3.3, I will explore whether there is a connection between the number of units, the number of storeys, and the score.
-
-## Built year vs. Score
 
 To understand the relationship between the year a building was built and its score, it is beneficial to draw a graph examining whether the score depends on the year of construction. With assistance from ChatGPT [@chatgpt], I have developed a graph illustrating the score by year (See @fig-fig1). Although the pattern in the figure is not entirely clear, it is noticeable that there are a few data points from the 1950s achieving very low scores. However, throughout the 20th century, these older buildings do achieve very high scores, even surpassing those constructed in the 21st century.
 
@@ -189,27 +187,23 @@ ggplot(bu_eval_filtered, aes(x = Decade, y = Average_Score)) +
   theme_minimal()
 ```
 
-## Percentage vs. Category
-
 The data in Section 2.4 were specifically designed to suit the analysis in the following graph (see @fig-fig3). Here, the x-axis represents the category, while the y-axis shows the percentage of buildings achieving full marks. The "blue" bar represents data from the 2000s, and the "red" bar represents data from the 1950s. The graph clearly illustrates a significant difference between the two decades, with buildings constructed in the 2000s more likely to achieve full marks in all categories compared to those built in the 1950s. 
 
 ```{r, fig.height=3, fig.width=5, fig.align='center'}
 #| message: false
 #| echo: false
 #| label: fig-fig3
-#| fig-cap: Comparing Each Category with the Percentage of a Building in its Decade of Achieveing Full Mark
+#| fig-cap: Probabilty for a building in different decade to achieve a full Mark in different category
 
 ## create a bar chart of evaluation standard vs. percentage with help of Chatgpt
 ggplot(data_frequency, aes(x = Category, y = Value, fill = as.factor(Year))) +
   geom_bar(stat = "identity", position = position_dodge()) +
   scale_fill_brewer(palette = "Set1") + 
-  labs(x = "Category", y = "Percentage", title = "Percentage for buildings of achieving a full Mark") +
+  labs(x = "Category", y = "Probabilty", title = "Probabilty for a building to achieve a full Mark") +
   scale_fill_manual(values = c("1950" = "pink", "2000" = "blue")) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
-
-## Unit number, Storey number vs. Score
 
 ```{r}
 #| message: false
